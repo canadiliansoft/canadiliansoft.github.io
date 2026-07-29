@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://canadiliansoft.github.io/sitemap.xml
+Sitemap: https://canadilian.com/sitemap.xml
