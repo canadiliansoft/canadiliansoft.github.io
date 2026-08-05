@@ -114,19 +114,7 @@
       font-weight: 750;
     }
 
-    .store-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .store-button {
-      display: block;
-      min-width: 184px;
-      padding: 13px 18px;
-      border: 1px solid rgba(255, 225, 183, .2);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, .06);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
-    }
-    .store-button small { display: block; color: var(--muted); font-size: 11px; }
-    .store-button strong { display: block; margin-top: 1px; font-size: 17px; }
-    .store-button[aria-disabled="true"] { opacity: .72; }
+    .store-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 32px; }
     .store-badge-link {
       display: inline-flex;
       align-items: center;
@@ -140,7 +128,9 @@
       outline: 3px solid var(--amber);
       outline-offset: 1px;
     }
-    .store-badge { display: block; width: 208px; height: auto; }
+    .store-badge { display: block; height: auto; }
+    .store-badge-app { width: 180px; }
+    .store-badge-google { width: 208px; }
 
     .hero-art {
       position: relative;
@@ -261,6 +251,7 @@
     .footer-row { display: flex; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
     .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
     .footer-links a:hover, .footer-links a:focus-visible { color: var(--ink); }
+    .trademark-credit { margin-top: 16px; font-size: 12px; }
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding-top: 56px; }
@@ -281,7 +272,6 @@
       section { padding: 72px 0; }
       .proof-grid, .gallery, .feature-grid { grid-template-columns: 1fr; }
       .gallery { width: min(100%, 430px); margin-inline: auto; }
-      .store-button { width: 100%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -312,13 +302,12 @@
         <p class="lead">Cinecase keeps combo packs, box sets, Steelbooks, seasons, and the way you arrange them intact. Then Movie Night makes an equal-odds pick from the films you actually own, with filters for genre, runtime, watched status, actor, and director.</p>
         <p class="promise">The core app is fully usable and free forever. Pro is optional, one-time, and never a subscription.</p>
         <div class="store-actions" aria-label="Store availability">
-          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.blurayshelf.movie_shelf" target="_blank" rel="noopener noreferrer" aria-label="Get Cinecase on Google Play">
-            <img class="store-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
+          <a class="store-badge-link" href="https://apps.apple.com/app/id6789741630" target="_blank" rel="noopener noreferrer" aria-label="Download Cinecase on the App Store">
+            <img class="store-badge store-badge-app" src="assets/app-store-badge.svg" alt="Download on the App Store">
           </a>
-          <div class="store-button" aria-disabled="true">
-            <small>Coming soon to the</small>
-            <strong>App Store</strong>
-          </div>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.blurayshelf.movie_shelf" target="_blank" rel="noopener noreferrer" aria-label="Get Cinecase on Google Play">
+            <img class="store-badge store-badge-google" src="assets/google-play-badge.png" alt="Get it on Google Play">
+          </a>
         </div>
       </div>
       <div class="hero-art">
@@ -431,6 +420,7 @@
         <a href="mailto:canadiliansoft@gmail.com">Support</a>
       </div>
     </div>
+    <div class="wrap trademark-credit">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions.</div>
   </footer>
 </body>
 </html>
