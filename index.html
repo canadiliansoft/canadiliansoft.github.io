@@ -127,22 +127,20 @@
     .store-button small { display: block; color: var(--muted); font-size: 11px; }
     .store-button strong { display: block; margin-top: 1px; font-size: 17px; }
     .store-button[aria-disabled="true"] { opacity: .72; }
-    .store-button-live {
-      color: var(--cream);
-      text-decoration: none;
-      background: linear-gradient(135deg, rgba(180, 122, 53, .34), rgba(255, 255, 255, .08));
-      border-color: rgba(217, 160, 91, .62);
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    .store-badge-link {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 12px;
+      transition: transform .18s ease;
     }
-    .store-button-live:hover {
+    .store-badge-link:hover {
       transform: translateY(-2px);
-      border-color: var(--amber);
-      background: linear-gradient(135deg, rgba(180, 122, 53, .5), rgba(255, 255, 255, .1));
     }
-    .store-button-live:focus-visible {
+    .store-badge-link:focus-visible {
       outline: 3px solid var(--amber);
-      outline-offset: 3px;
+      outline-offset: 1px;
     }
+    .store-badge { display: block; width: 208px; height: auto; }
 
     .hero-art {
       position: relative;
@@ -314,9 +312,8 @@
         <p class="lead">Cinecase keeps combo packs, box sets, Steelbooks, seasons, and the way you arrange them intact. Then Movie Night makes an equal-odds pick from the films you actually own, with filters for genre, runtime, watched status, actor, and director.</p>
         <p class="promise">The core app is fully usable and free forever. Pro is optional, one-time, and never a subscription.</p>
         <div class="store-actions" aria-label="Store availability">
-          <a class="store-button store-button-live" href="https://play.google.com/store/apps/details?id=com.blurayshelf.movie_shelf" target="_blank" rel="noopener noreferrer" aria-label="Get Cinecase on Google Play">
-            <small>Get it on</small>
-            <strong>Google Play</strong>
+          <a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.blurayshelf.movie_shelf" target="_blank" rel="noopener noreferrer" aria-label="Get Cinecase on Google Play">
+            <img class="store-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
           </a>
           <div class="store-button" aria-disabled="true">
             <small>Coming soon to the</small>
