@@ -16,7 +16,7 @@ a{color:#b47a35}strong{font-weight:700}
 </head>
 <body>
 <h1>Cinecase - Privacy Policy</h1>
-<p class="muted"><em>Last updated: 25 July 2026</em></p>
+<p class="muted"><em>Last updated: 29 July 2026</em></p>
 
 <p>Cinecase ("the app", "we") is a local-first movie/Blu-ray collection app. This policy explains what data the app handles, where it goes, and the choices you have. <strong>In plain terms: your collection lives on your device unless you choose Google Drive sync; optional Google sign-in for shared scan lookups does not send your collection to us. We do not store or sell your library.</strong></p>
 
@@ -26,7 +26,7 @@ a{color:#b47a35}strong{font-weight:700}
 <h2>The short version</h2>
 <ul>
 <li>Your movie collection is stored <strong>on your device</strong>. No account is required to use the app.</li>
-<li>Custom cover photos you choose or take, and downloaded poster artwork cached for faster/offline display, stay in Cinecase's private storage on that device.</li>
+<li>Custom cover photos you choose or take stay in Cinecase's private storage on that device. If you create a JSON backup or enable Google Drive sync, those photos are included inside that user-controlled backup so they can be restored. Downloaded poster artwork is not included.</li>
 <li>You may optionally sign in with Google to help the <strong>shared scan database</strong> resolve new barcodes. This does <strong>not</strong> request Google Drive access and does <strong>not</strong> upload your collection.</li>
 <li>We do <strong>not</strong> operate a collection server and have <strong>no database of your library</strong>. We cannot see your collection.</li>
 <li>Cinecase uses a small backend lookup service for public barcode/movie metadata so API keys stay off your device; it does not store your library.</li>
@@ -38,7 +38,7 @@ a{color:#b47a35}strong{font-weight:700}
 <ul>
 <li>Your libraries, movies, ratings, watch status, loans, tags, and settings are stored locally in an on-device database. Uninstalling the app deletes them.</li>
 <li>The app also writes periodic <strong>local backup files</strong> to its own private app storage so you can restore after an accident. These never leave your device unless you share or sync them.</li>
-<li>If you choose or photograph custom cover artwork, Cinecase copies that image into its private app storage. Custom-cover image files are device-specific and are not included in JSON exports or Google Drive collection snapshots.</li>
+<li>If you choose or photograph custom cover artwork, Cinecase copies that image into its private app storage. A portable copy is included inside JSON backup exports and optional Google Drive collection snapshots so the cover can be restored on another device. It leaves the device only when you explicitly export/share that backup or enable Google Drive sync.</li>
 <li>Poster artwork downloaded from TMDb may be cached in private app storage for faster loading and offline display. Cached posters refresh periodically, are not included in exports or Drive snapshots, and are removed by uninstalling Cinecase or clearing its app data.</li>
 </ul>
 
@@ -52,7 +52,7 @@ a{color:#b47a35}strong{font-weight:700}
 
 <p><strong>3. Barcode lookup (UPCitemdb / optional Barcode Lookup)</strong> - When you scan a disc, the app or Cinecase lookup service may send the <strong>barcode number</strong> to a barcode database to identify the product. No collection contents are attached to these requests.</p>
 
-<p><strong>4. Camera and photo selection</strong> - For barcode scanning, camera frames are processed on your device to read the barcode and are not stored or transmitted. If you explicitly choose <strong>Take photo</strong> or <strong>Choose photo</strong> for custom cover artwork, Cinecase stores the selected/captured image in its private app storage on that device. Custom-cover images are not sent to Cinecase's lookup service, TMDb, barcode providers, or product-event service, and are not included in JSON exports or Google Drive collection snapshots.</p>
+<p><strong>4. Camera and photo selection</strong> - For barcode scanning, camera frames are processed on your device to read the barcode and are not stored or transmitted. If you explicitly choose <strong>Take photo</strong> or <strong>Choose photo</strong> for custom cover artwork, Cinecase stores the selected/captured image in its private app storage on that device. Custom-cover images are not sent to Cinecase's lookup service, TMDb, barcode providers, or product-event service. They are included in a JSON backup you explicitly export and in the Cinecase backup file stored in your own Google Drive if you enable sync, so they can be restored with the collection.</p>
 
 <p><strong>5. Google Sign-In and Google Drive</strong> - Google Sign-In is optional and can be used in two separate ways:</p>
 <ul>
@@ -65,7 +65,7 @@ a{color:#b47a35}strong{font-weight:700}
 <p><strong>7. First-party product events</strong> - Cinecase may send a small set of product events to understand whether core flows are working, such as scan started, scan succeeded, scan failed, import started, import completed, paywall viewed, purchase started, purchase completed, sync enabled, restore attempted, or correction shared. These events include only the event name plus coarse platform and app version metadata. They do <strong>not</strong> include movie titles, barcodes, TMDb IDs, poster paths, ratings, reviews, shelf names, notes, loan details, or collection contents. You can turn product diagnostics off in the app settings.</p>
 
 <h2>What we collect</h2>
-<p>We do not collect or store your movie collection. Cinecase has no email/password account, advertising, or third-party tracking. Optional Google sign-in creates an opaque Cinecase identity for shared-registry requests. The metadata lookup service handles the public barcode/search data needed to make lookups work; the hashed IP address, hashed search text, and date used to rate-limit title searches; and, for rate-limited first-time barcode resolution or user-approved corrections, that opaque Google user id. Turning on the free shared-scan identity sign-in does not transmit your collection and does not grant Drive access. Cinecase may store the limited first-party product events described above. Your full collection is transmitted only to your own Google Drive if you enable sync. All such transmission uses encrypted (HTTPS) connections. Custom-cover photos and the on-device poster cache are not collected by Cinecase's developer services.</p>
+<p>We do not collect or store your movie collection. Cinecase has no email/password account, advertising, or third-party tracking. Optional Google sign-in creates an opaque Cinecase identity for shared-registry requests. The metadata lookup service handles the public barcode/search data needed to make lookups work; the hashed IP address, hashed search text, and date used to rate-limit title searches; and, for rate-limited first-time barcode resolution or user-approved corrections, that opaque Google user id. Turning on the free shared-scan identity sign-in does not transmit your collection and does not grant Drive access. Cinecase may store the limited first-party product events described above. Your full collection is transmitted only to your own Google Drive if you enable sync. All such transmission uses encrypted (HTTPS) connections. Custom-cover photos and the on-device poster cache are not collected by Cinecase's developer services. Custom covers may leave the device only inside a user-created/shared JSON backup or the optional backup in the user's own Google Drive; cached posters are excluded from both.</p>
 
 <h2>How long we keep things</h2>
 <ul>

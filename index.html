@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17100b">
-  <meta name="description" content="Cinecase turns your physical movie and TV collection into a shelf of cases on your phone. The core app is free forever. Pro is optional and one-time.">
+  <meta name="description" content="Catalog your physical movie collection, then let Movie Night choose what to watch from your own shelf. Free core, optional lifetime Pro.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cinecase | Your physical movie collection, on a shelf">
-  <meta property="og:description" content="A local-first collection app for Blu-ray, 4K, DVD, Steelbooks, TV releases, and box sets. Free core, optional lifetime Pro, no subscription.">
+  <meta property="og:title" content="Cinecase | Catalog the shelf. Pick tonight's movie.">
+  <meta property="og:description" content="Catalog your physical movie collection, then let Movie Night choose what to watch from your own shelf. Local-first, free core, optional lifetime Pro.">
   <meta property="og:url" content="https://canadilian.com/">
   <meta property="og:image" content="https://canadilian.com/assets/og-cinecase.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://canadilian.com/">
-  <title>Cinecase | Your physical movie collection, on a shelf</title>
+  <title>Cinecase | Catalog the shelf. Pick tonight's movie.</title>
   <link rel="icon" href="assets/cinecase-app-icon.png">
   <style>
     :root {
@@ -116,6 +116,7 @@
 
     .store-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
     .store-button {
+      display: block;
       min-width: 184px;
       padding: 13px 18px;
       border: 1px solid rgba(255, 225, 183, .2);
@@ -126,6 +127,22 @@
     .store-button small { display: block; color: var(--muted); font-size: 11px; }
     .store-button strong { display: block; margin-top: 1px; font-size: 17px; }
     .store-button[aria-disabled="true"] { opacity: .72; }
+    .store-button-live {
+      color: var(--cream);
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(180, 122, 53, .34), rgba(255, 255, 255, .08));
+      border-color: rgba(217, 160, 91, .62);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .store-button-live:hover {
+      transform: translateY(-2px);
+      border-color: var(--amber);
+      background: linear-gradient(135deg, rgba(180, 122, 53, .5), rgba(255, 255, 255, .1));
+    }
+    .store-button-live:focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 3px;
+    }
 
     .hero-art {
       position: relative;
@@ -206,6 +223,13 @@
     .feature span { color: var(--amber); font-size: 13px; font-weight: 850; letter-spacing: .08em; }
     .feature h3 { margin: 18px 0 0; font-size: 23px; }
     .feature p { margin: 10px 0 0; color: var(--muted); }
+    .feature-major {
+      grid-column: 1 / -1;
+      min-height: 0;
+      background: linear-gradient(120deg, rgba(132, 76, 31, .9), rgba(40, 23, 14, .82));
+    }
+    .feature-major h3 { font-size: clamp(28px, 4vw, 40px); }
+    .feature-major p { max-width: 800px; font-size: 17px; }
 
     .free-panel {
       display: grid;
@@ -286,14 +310,14 @@
     <div class="hero wrap">
       <div class="hero-copy">
         <p class="eyebrow">For people who still buy the disc</p>
-        <h1>Your collection is more than a list of titles.</h1>
-        <p class="lead">Combo packs, box sets, Steelbooks, and seasons belong on your shelf the way you actually own and arrange them. Cinecase keeps those physical releases intact instead of flattening everything into a movie list.</p>
+        <h1>Catalog the shelf. Pick tonight's movie.</h1>
+        <p class="lead">Cinecase keeps combo packs, box sets, Steelbooks, seasons, and the way you arrange them intact. Then Movie Night makes an equal-odds pick from the films you actually own, with filters for genre, runtime, watched status, actor, and director.</p>
         <p class="promise">The core app is fully usable and free forever. Pro is optional, one-time, and never a subscription.</p>
         <div class="store-actions" aria-label="Store availability">
-          <div class="store-button" aria-disabled="true">
-            <small>Coming soon to</small>
+          <a class="store-button store-button-live" href="https://play.google.com/store/apps/details?id=com.blurayshelf.movie_shelf" target="_blank" rel="noopener noreferrer" aria-label="Get Cinecase on Google Play">
+            <small>Get it on</small>
             <strong>Google Play</strong>
-          </div>
+          </a>
           <div class="store-button" aria-disabled="true">
             <small>Coming soon to the</small>
             <strong>App Store</strong>
@@ -363,6 +387,7 @@
           <h2 id="features-title">The details collectors actually care about.</h2>
         </div>
         <div class="feature-grid">
+          <article class="feature feature-major"><span>MOVIE NIGHT</span><h3>Let your shelf decide</h3><p>Start with unwatched films, narrow the choice, and reveal one equal-odds pick. Films inside Collections stay individually eligible.</p></article>
           <article class="feature"><span>01</span><h3>Scan or add manually</h3><p>Use a barcode when it works, or search by title when a j-card or code is missing.</p></article>
           <article class="feature"><span>02</span><h3>Movies and TV</h3><p>Track films, series, seasons, multi-season cases, complete series, and limited series.</p></article>
           <article class="feature"><span>03</span><h3>Your artwork</h3><p>Use custom covers for individual releases, Steelbooks, slipcovers, and Collections.</p></article>
