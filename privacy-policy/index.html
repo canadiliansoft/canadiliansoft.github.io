@@ -16,7 +16,7 @@ a{color:#b47a35}strong{font-weight:700}
 </head>
 <body>
 <h1>Cinecase - Privacy Policy</h1>
-<p class="muted"><em>Last updated: 29 July 2026</em></p>
+<p class="muted"><em>Last updated: 7 August 2026</em></p>
 
 <p>Cinecase ("the app", "we") is a local-first movie/Blu-ray collection app. This policy explains what data the app handles, where it goes, and the choices you have. <strong>In plain terms: your collection lives on your device unless you choose Google Drive sync; optional Google sign-in for shared scan lookups does not send your collection to us. We do not store or sell your library.</strong></p>
 
@@ -32,6 +32,7 @@ a{color:#b47a35}strong{font-weight:700}
 <li>Cinecase uses a small backend lookup service for public barcode/movie metadata so API keys stay off your device; it does not store your library.</li>
 <li>The app contains <strong>no advertising, no analytics SDKs, and no third-party trackers</strong>. Cinecase may send limited first-party product events, described below, to help improve scanning, import, sync, and upgrade flows.</li>
 <li>Some features send data to <strong>third-party services</strong> (TMDb, a barcode lookup service, optional Google Sign-In, and, only if you turn on cloud sync, your own Google Drive). These are described below.</li>
+<li>If you contact support from inside the app, Cinecase writes the message for you and hands it to <strong>your own email app</strong>. It is not sent by us and we keep no copy, and you can read and edit every part of it before sending.</li>
 </ul>
 
 <h2>What stays on your device</h2>
@@ -62,7 +63,7 @@ a{color:#b47a35}strong{font-weight:700}
 
 <p><strong>6. Google Play Billing (Android) / the App Store (iOS)</strong> - The optional one-time "Cinecase Pro" purchase is processed by Google or Apple. The app only records whether Pro is unlocked; <strong>we never receive your payment details.</strong></p>
 
-<p><strong>7. First-party product events</strong> - Cinecase may send a small set of product events to understand whether core flows are working, such as scan started, scan succeeded, scan failed, import started, import completed, paywall viewed, purchase started, purchase completed, sync enabled, restore attempted, or correction shared. These events include only the event name plus coarse platform and app version metadata. They do <strong>not</strong> include movie titles, barcodes, TMDb IDs, poster paths, ratings, reviews, shelf names, notes, loan details, or collection contents. You can turn product diagnostics off in the app settings.</p>
+<p><strong>7. First-party product events</strong> - Cinecase may send a small set of product events to understand whether core flows are working, such as scan started, scan succeeded, scan failed, import started, import completed, paywall viewed, purchase started, purchase completed, sync enabled, restore attempted, correction shared, or a support report being started. These events include only the event name plus coarse platform and app version metadata. They do <strong>not</strong> include movie titles, barcodes, TMDb IDs, poster paths, ratings, reviews, shelf names, notes, loan details, or collection contents. You can turn product diagnostics off in the app settings.</p>
 
 <h2>What we collect</h2>
 <p>We do not collect or store your movie collection. Cinecase has no email/password account, advertising, or third-party tracking. Optional Google sign-in creates an opaque Cinecase identity for shared-registry requests. The metadata lookup service handles the public barcode/search data needed to make lookups work; the hashed IP address, hashed search text, and date used to rate-limit title searches; and, for rate-limited first-time barcode resolution or user-approved corrections, that opaque Google user id. Turning on the free shared-scan identity sign-in does not transmit your collection and does not grant Drive access. Cinecase may store the limited first-party product events described above. Your full collection is transmitted only to your own Google Drive if you enable sync. All such transmission uses encrypted (HTTPS) connections. Custom-cover photos and the on-device poster cache are not collected by Cinecase's developer services. Custom covers may leave the device only inside a user-created/shared JSON backup or the optional backup in the user's own Google Drive; cached posters are excluded from both.</p>
@@ -73,6 +74,12 @@ a{color:#b47a35}strong{font-weight:700}
 <li>Shared scan-database activity linked to your opaque Google user id is kept until you use the account-deletion options below.</li>
 <li>Shared barcode records are community data and carry no link to you after deletion. Film details drawn from TMDb inside those records are refreshed or removed within 150 days.</li>
 </ul>
+
+<h2>Contacting support from inside the app</h2>
+<p>Settings &gt; Contact support prepares a bug report or question and hands it to <strong>your own email app</strong>. Cinecase does not send it and does not keep a copy: the message goes from your mail account to ours the same way any other email you write does, and you can edit or delete any part of it first.</p>
+<p>To save a round trip, the message is prefilled with technical details: the app version, your platform and OS version, your locale and text size, which shelf theme and display mode you use, whether Pro is unlocked, your cloud-sync status, and a count of how many films and libraries you have. It may also include the first line of the last few errors the app recorded. Those error notes are kept only in memory, are never written to storage, and are discarded when the app closes unless you send them.</p>
+<p><strong>No movie titles, barcodes, ratings, reviews, or shelf contents are included in those technical details.</strong> Tap "What will be sent" in that screen to read the exact text before sending. If you attach a backup file yourself, that file contains your collection as described under "Sharing your collection" below.</p>
+<p>If you start a report from a failure, using the <strong>Report this</strong> link that appears when a barcode lookup or a title search does not work, the message is prefilled with what failed: the barcode that was scanned, or the words you searched for, plus the error the app showed. That text sits in the editable part of the message, above the technical details, so you can change or delete it before sending.</p>
 
 <h2>Sharing your collection</h2>
 <p>Export and "share my shelf" features send a file (JSON/CSV/PDF/image) <strong>only when you choose to</strong>, through your device's standard share sheet, to the destination you pick.</p>
