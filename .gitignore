@@ -1,0 +1,13 @@
+dist/
+node_modules/
+
+# Working files that must never be served from canadilian.com.
+# This repo is root-served by GitHub Pages, so anything committed here is
+# publicly fetchable. Keep it to the site itself.
+REVIEW.md
+tools/
+package.json
+.openai/
+
+# Lossless simulator master. The page ships the WebP derivative instead.
+assets/hero-shelf-large.png
