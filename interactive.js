@@ -3,6 +3,7 @@
   const tour = document.querySelector('.tour');
   const slides = [...document.querySelectorAll('.tour-slide')];
   const chapters = [...document.querySelectorAll('.chapter-links a')];
+  const supportsInert = slides.every(slide => 'inert' in slide);
   const pinQuery = matchMedia('(min-width: 901px) and (min-height: 701px) and (prefers-reduced-motion: no-preference)');
   let frame = 0;
   let pinned = false;
@@ -23,8 +24,18 @@
   }
   function queue() { if (!frame) frame = requestAnimationFrame(update); }
   function configure() {
-    pinned = pinQuery.matches;
+    document.documentElement.style.setProperty('--header-height', `${document.querySelector('header').offsetHeight}px`);
+    // Keep all content in document flow if large text cannot fit the stage,
+    // or the browser cannot remove offscreen panels from keyboard navigation.
+    pinned = pinQuery.matches && supportsInert;
     tour.classList.toggle('is-pinned', pinned);
+    if (pinned) {
+      const available = tour.querySelector('.tour-window').clientHeight;
+      if (slides.some(slide => slide.querySelector('.tour-copy').scrollHeight + 40 > available)) {
+        pinned = false;
+        tour.classList.remove('is-pinned');
+      }
+    }
     current = -1;
     slides.forEach(slide => {slide.inert = false;});
     if (!pinned) {tour.style.removeProperty('--progress');chapters.forEach(a => a.removeAttribute('aria-current'));}
@@ -48,7 +59,10 @@
     });
   });
   window.addEventListener('scroll',queue,{passive:true});
-  window.addEventListener('resize',queue,{passive:true});
+  window.addEventListener('resize',configure,{passive:true});
+  document.querySelectorAll('.mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {link.closest('details').open = false;});
+  });
   pinQuery.addEventListener('change',configure);
   configure();
   function restoreHash() {

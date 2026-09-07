@@ -1,6 +1,6 @@
 :root {--header-height:73px}
-html {scroll-padding-top:90px}
-[id] {scroll-margin-top:90px}
+html {scroll-padding-top:calc(var(--header-height) + 16px)}
+[id] {scroll-margin-top:0}
 .skip-link {position:fixed;left:20px;top:-100px;z-index:100;background:var(--amber-soft);color:#17100b;padding:12px 20px}
 .skip-link:focus {top:10px}
 .button,.text-link {font-weight:750;text-underline-offset:6px}.button {display:inline-flex;gap:24px;align-items:center;min-height:48px;padding:14px 22px;background:var(--amber-soft);color:#21140e;border-radius:8px;text-decoration:none}.text-link {display:inline-block;padding-block:12px;color:var(--amber-soft)}
@@ -38,3 +38,6 @@ body{overflow-x:clip}
 .mobile-nav-links{position:absolute;right:0;top:100%;width:min(20rem,calc(100vw - 28px));padding:12px;background:#21140e;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
 .mobile-nav-links a{display:block;padding:12px;color:var(--ink);font-size:1rem;text-decoration:none}
 @media(max-width:900px){.nav-links{display:none}.mobile-nav{display:block}}
+
+h1,h2,h3{overflow-wrap:anywhere}
+nav{flex-wrap:wrap}
