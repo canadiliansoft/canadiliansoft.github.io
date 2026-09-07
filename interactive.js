@@ -24,6 +24,8 @@
   }
   function queue() { if (!frame) frame = requestAnimationFrame(update); }
   function configure() {
+    tour.style.setProperty('--tour-travel', `${-100 * (slides.length - 1)}%`);
+    tour.style.setProperty('--tour-height', `${100 + 80 * (slides.length - 1)}vh`);
     document.documentElement.style.setProperty('--header-height', `${document.querySelector('header').offsetHeight}px`);
     // Keep all content in document flow if large text cannot fit the stage,
     // or the browser cannot remove offscreen panels from keyboard navigation.
