@@ -10,10 +10,21 @@
   let current = -1;
   function range() { return Math.max(1, tour.offsetHeight - tour.querySelector('.tour-stage').offsetHeight); }
   function top() { return tour.getBoundingClientRect().top + scrollY - document.querySelector('header').offsetHeight; }
+  function easedProgress(raw) {
+    const steps = slides.length - 1;
+    if (steps < 1) return 0;
+    const position = raw * steps;
+    const chapter = Math.floor(position);
+    // Reserve the first and last quarter of each interval for reading.
+    // Smoothstep eases the movement between them in either scroll direction.
+    const t = Math.max(0, Math.min(1, (position - chapter - 0.25) / 0.5));
+    return (chapter + t * t * (3 - 2 * t)) / steps;
+  }
   function update() {
     frame = 0;
     if (!pinned) return;
-    const progress = Math.max(0, Math.min(1, (scrollY - top()) / range()));
+    const raw = Math.max(0, Math.min(1, (scrollY - top()) / range()));
+    const progress = easedProgress(raw);
     tour.style.setProperty('--progress', progress.toFixed(5));
     const index = Math.round(progress * (slides.length - 1));
     if (index !== current) {
@@ -25,7 +36,7 @@
   function queue() { if (!frame) frame = requestAnimationFrame(update); }
   function configure() {
     tour.style.setProperty('--tour-travel', `${-100 * (slides.length - 1)}%`);
-    tour.style.setProperty('--tour-height', `${100 + 80 * (slides.length - 1)}vh`);
+    tour.style.setProperty('--tour-height', `${100 + 160 * (slides.length - 1)}vh`);
     document.documentElement.style.setProperty('--header-height', `${document.querySelector('header').offsetHeight}px`);
     // Keep all content in document flow if large text cannot fit the stage,
     // or the browser cannot remove offscreen panels from keyboard navigation.
