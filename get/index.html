@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Get Cinecase</title>
+<style>
+  :root { color-scheme: light dark; --ink: #1d1b19; --muted: #6b645c; --ground: #f7f3ee; --card: #fff; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #f2ede6; --muted: #b3aaa0; --ground: #171513; --card: #221f1c; } }
+  body { margin: 0; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--ground); }
+  main { max-width: 34rem; margin: 0 auto; padding: 3rem 1.25rem; text-align: center; }
+  h1 { font-size: 1.75rem; margin: 0 0 .5rem; }
+  p { color: var(--muted); margin: 0 0 1.5rem; }
+  .stores { display: grid; gap: .75rem; }
+  a.store { display: block; padding: .9rem 1rem; border-radius: 12px; background: var(--card); color: var(--ink); text-decoration: none; font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  a.store[data-match] { outline: 2px solid #2aa198; }
+  .steps { text-align: left; margin-top: 2rem; }
+  .steps li { margin: .35rem 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Someone shared their movie shelf with you</h1>
+  <p>Cinecase is a free app for Blu-ray, DVD and 4K collections. Install it, then open the file you were sent to browse their shelf. It stays separate from your own collection.</p>
+  <div class="stores">
+    <a class="store" id="ios" href="https://apps.apple.com/app/id6789741630">Download on the App Store</a>
+    <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.blurayshelf.movie_shelf">Get it on Google Play</a>
+  </div>
+  <ol class="steps">
+    <li>Install Cinecase.</li>
+    <li>Go back to the message and tap the <strong>.cinecase</strong> file.</li>
+    <li>Choose <strong>Open in Cinecase</strong> (iPhone: tap Share first if you do not see it).</li>
+  </ol>
+</main>
+<script>
+  // Send a phone straight to its store; anything else sees both links.
+  (function () {
+    var ua = navigator.userAgent || "";
+    var iPadOS = /Macintosh/.test(ua) && "ontouchend" in document;
+    var target = /iPhone|iPad|iPod/.test(ua) || iPadOS ? "ios" : /Android/.test(ua) ? "android" : null;
+    if (!target) return;
+    var link = document.getElementById(target);
+    link.setAttribute("data-match", "");
+    // Only when opened from a link, so Back from the store returns to the steps.
+    // Storage can be blocked; then show the links rather than risk a loop.
+    try {
+      if (sessionStorage.getItem("cinecase-get-redirected")) return;
+      sessionStorage.setItem("cinecase-get-redirected", "1");
+    } catch (e) { return; }
+    location.href = link.href;
+  })();
+</script>
+</body>
+</html>
