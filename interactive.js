@@ -92,4 +92,17 @@
   }
 })();
 
-;(function(){var q=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)');if(q&&q.matches){document.querySelectorAll('.tour-image video').forEach(function(v){v.removeAttribute('autoplay');v.pause();});}})();
+;(function(){
+  // Tour videos load and play only when they are about to be seen, and pause when they leave. Posters show until then.
+  var vids=[].slice.call(document.querySelectorAll('.tour-image video'));
+  var q=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)');
+  if((q&&q.matches)||!('IntersectionObserver' in window)||!vids.length) return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+      else v.pause();
+    });
+  },{rootMargin:'0px 200px',threshold:0.2});
+  vids.forEach(function(v){io.observe(v);});
+})();
