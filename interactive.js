@@ -91,3 +91,5 @@
     document.querySelectorAll('.migration-step,.feature').forEach(el => {el.classList.add('reveal-ready');observer.observe(el);});
   }
 })();
+
+;(function(){var q=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)');if(q&&q.matches){document.querySelectorAll('.tour-image video').forEach(function(v){v.removeAttribute('autoplay');v.pause();});}})();

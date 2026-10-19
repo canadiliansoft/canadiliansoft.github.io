@@ -46,3 +46,5 @@ nav{flex-wrap:wrap}
 .tour-image--screen{background:#100d0b}
 .tour-image--screen img{width:100%;height:100%;object-fit:contain;transform:none}
 .tour-controls,.chapter-links{flex-wrap:wrap}
+
+.tour-image video{display:block;width:100%;height:100%;object-fit:cover;transform:none}
